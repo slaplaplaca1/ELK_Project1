@@ -70,6 +70,8 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 --- To setup an ELK VM on an Ansible container, please expand script below. To write a play to configure the ELK server, should only run on the VM in the [elk] group. Then use the hosts file as an option in Ansible to specify which machines to run a set of tasks against.
+
+```
 - name: Configure Elk VM with Docker
   hosts: elk
   remote_user: azadmin
@@ -126,7 +128,7 @@ The playbook implements the following tasks:
       systemd:
         name: docker
         enabled: yes
-
+```
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
