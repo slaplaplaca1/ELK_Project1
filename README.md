@@ -150,21 +150,21 @@ These Beats allow us to collect the following information from each machine:
 - Filebeat collects data on filtered protocols that are set by the user. An example of such data collection can be exemplified by being able to manipulate the time duration of collecting the data, what type of data can be captured, such as 404 and 505 errors, and being able to filter out data derived from specific geographical locations. Also filebeat captures such events as logins to see who is actively logging into the system. An example of a Filebeat is as follows 
 -Filebeat example:
 - Jul 24, 2021 @ 21:22:59.000Web-2
-- ![Filebeat_Graphic_Output](ansible/FilebeatLogExamples.png)
+- ![Filebeat_Graphic_Output](Ansible/FilebeatLogExamples.png)
 - Metricbeat is a lightweight shippper that you can install on your servers to periodically collect metrics/data from the operating system and from services running on the server. Metricbeat take the metrics and statistics that is collects. An example of the data collected during a specific day is as follows:
 -Metricbeat example:
-- ![Metricbeat_Graphic_Output](ansible/MetricbeatExample.png)
+- ![Metricbeat_Graphic_Output](Ansible/MetricbeatExample.png)
 
 ### Using the Playbook
 - In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the elk_install.yml file to /etc/ansible/roles/elk_install.yml.
+- Copy the elk_install.yml file to /etc/Ansible/roles/elk_install.yml.
 - Update the hosts file to include attribute, such as [elk], then include your destination IP of the ELK server to directly below.
 
 - Example of host file 
  This is the default ansible 'hosts' file.
- It should live in /etc/ansible/hosts
+ It should live in /etc/Ansible/hosts
 
    - Comments begin with the '#' character
    - Blank lines are ignored
@@ -181,30 +181,30 @@ SSH into the control node and follow the steps below:
  
 *_From desktop to the Kibana website, the following process was implemented to set up the ELK website. 
 - Run the playbook, and navigate to http://<[your_elk_server_ip]>:5601/app/kibana to check that the installation worked as expected. An example of the start screen is as follows:
-- ![Kibana_Start_Screen](ansible/ScreenShotKibana.png) 
+- ![Kibana_Start_Screen](Ansible/ScreenShotKibana.png) 
 
 - The ansible-playbook compiles the filebeat-playbook and other  
   -playbook programs. The following is the ansible-playbook program compiling the filebeat-playbook program.
-- ![Filebeat_Playbook_Command](ansible/Ansible-PlaybookFilebeat-Playbook.png)
+- ![Filebeat_Playbook_Command](Ansible/Ansible-PlaybookFilebeat-Playbook.png)
 - To ascertain if the filebeat program was compiled correctly in Kibana, you look for the following designation:
-- ![Filebeat_Playbook_Exec_Proof](ansible/Filebeatproof.png) 
+- ![Filebeat_Playbook_Exec_Proof](Ansible/Filebeatproof.png) 
 - The filebeat-playbook is copied to /etc/ansible/roles/filebeat-playbook.yml folder. Typically .yml files are used to run the playbook and are stored in containers where ansible-playbook is used to deploy the playbook files.
 - The  hosts file usually allows for the grouping of virtual machines and has the settings where you can dictate the deployment of the playbook files.
 _Bonus - How to start from your desktop to getting to your records online with Kibana_
 To get into Jump Box
 - ssh azadmin@<Jump-box-ProvisionerPublicIPAddress>
-- ![ssh_command_example](ansible/sshazadmin@IP.png)
+- ![ssh_command_example](Ansible/sshazadmin@IP.png)
 To get into and start ELK Server - Logs are located
 - Sudo Docker container list -a
-- ![docker_program_list](ansible/Sudodockercontainera.png)
+- ![docker_program_list](Ansible/Sudodockercontainera.png)
 - Sudo docker start [container name]
-- ![docker_program_start](ansible/sudodockerstart11a.png) 
+- ![docker_program_start](Ansible/sudodockerstart11a.png) 
 - sudo docker attach [container name]
-- ![Proof_in_ELK](ansible/sudodockerattach11a.png)
+- ![Proof_in_ELK](Ansible/sudodockerattach11a.png)
 - sudo docker ps
-- ![Proof_Docker_is_Running](ansible/SudoDockerPs.png)
+- ![Proof_Docker_is_Running](Ansible/SudoDockerPs.png)
 - ansible-playbook [.yml file to run]
-- ![Filebeat_exec](ansible/ansible-playbookfilebeat-playbook.yml.png)
+- ![Filebeat_exec](Ansible/ansible-playbookfilebeat-playbook.yml.png)
 To get into Kibana Online - Open a Browser
 -  <ELKIPAddress>/app/kibana/
-- ![Access_ELK_Online](ansible/ScreenShotKibana.png)
+- ![Access_ELK_Online](Ansible/ScreenShotKibana.png)
